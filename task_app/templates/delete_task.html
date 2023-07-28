@@ -1,0 +1,19 @@
+{% include 'inc/base.html' %}
+<h2 class="text-center mt-3">Delete task...!</h2>
+<div class="container mt-3">
+    <div class="row justify-content-md-center">
+        <div class="col-lg-6">
+           <div class="card">
+            <div class="card-body">
+                <form  method="post" autocomplete="off">
+                    {% csrf_token %}
+                
+                    <p>Are you sure want to delete <b>"{{object}}"?</b></p>
+                    <a href="{% url 'viewtasks' %}" class="btn btn-warning">Go back</a>
+                    <input type="submit" value="submit" class="btn btn-info">
+                </form>
+            </div>
+           </div>
+        </div>
+    </div>
+</div>

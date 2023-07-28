@@ -1,0 +1,47 @@
+{% include 'inc/base.html' %}
+{% load crispy_forms_tags %} 
+<style>
+    .form-label{
+        font-size: large;
+        font-weight: bold;
+        
+    }
+</style>
+
+<h2 class="text-center mt-3">My Tasks</h2>
+
+<div class="container">
+
+    <div class="row justify-content-md-center">
+    {% for v in tasks %}
+        <div class="col-lg-6">
+            <div class="card mt-3">
+                <div class="card-body">
+                    <p><b>Task:</b> {{v.task}}</p><br>
+                    <p><b>Description:</b> {{v.description}}</p><br>
+                    <p><b>Due-date:</b> {{v.due_date}}</p>
+                    <!-- <form>
+                        <div class="mb-3">
+                          <label for="task" class="form-label">Task:</label>
+                          <input type="text" class="form-control" id="task" aria-describedby="emailHelp" value="{{v.task}}">
+                        </div>
+                        <div class="mb-3">
+                          <label for="description" class="form-label">Description:</label>
+                          <input type="text" class="form-control" id="description" value="{{v.description}}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="date" class="form-label">Due_date:</label>
+                            <input type="text" class="form-control" id="date" value="{{v.due_date}}">
+                          </div> -->
+                          <a href="{% url 'updatetask' v.id %}" class="btn btn-success">Update task</a>
+                          <a href="{% url 'deletetask' v.id %}" class="btn btn-danger">Delete task</a>
+
+                      </form>
+                </div>
+            </div>
+        </div>   
+    {% endfor %}
+
+    </div>
+
+</div>
